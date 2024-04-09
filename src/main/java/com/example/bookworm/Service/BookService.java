@@ -57,7 +57,7 @@ public class BookService {
         return book.getAuthor();
     }
 
-    public Specification getSpecForBook(Long bookId) throws Exception {
+    public Specifications getSpecForBook(Long bookId) throws Exception {
         Book book = bookRepo.findById(bookId)
                 .orElseThrow(() -> new Exception("Book not found with id " + bookId));
 
@@ -96,6 +96,11 @@ public class BookService {
 
         bookRepo.save(book);
     }
+
+    public List<String> titlesWithAuthors(){
+        return bookRepo.getTilesAuthors();
+    }
+
 
 
 

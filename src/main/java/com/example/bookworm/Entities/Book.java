@@ -28,10 +28,10 @@ public class Book {
 
     @ManyToOne
     @JoinColumn(name = "id_spec")
-    private Specification specifications;
+    private Specifications specifications;
 
 
-    public Book(Long id, String title, Category category, Author author, Review review, Specification specifications) {
+    public Book(Long id, String title, Category category, Author author, Review review, Specifications specifications) {
         this.id = id;
         this.title = title;
         this.category = category;
@@ -96,11 +96,11 @@ public class Book {
         this.review = review;
     }
 
-    public Specification getSpecifications() {
+    public Specifications getSpecifications() {
         return specifications;
     }
 
-    public void setSpecifications(Specification specifications) {
+    public void setSpecifications(Specifications specifications) {
         this.specifications = specifications;
     }
 

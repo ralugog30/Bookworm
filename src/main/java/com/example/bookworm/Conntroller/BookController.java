@@ -5,13 +5,14 @@ import com.example.bookworm.Entities.*;
 import com.example.bookworm.Service.BookService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.*;
 
 
 @RestController
-@RequestMapping("/api/book")
+@RequestMapping("/api/books")
 public class BookController {
 
     private final BookService bookService;
@@ -27,8 +28,8 @@ public class BookController {
     }
 
     @GetMapping("/{bookId}/specification")
-    public ResponseEntity<Specification> getSpecificationForBook(@PathVariable Long bookId) throws Exception {
-        Specification specification= bookService.getSpecForBook(bookId);
+    public ResponseEntity<Specifications> getSpecificationForBook(@PathVariable Long bookId) throws Exception {
+        Specifications specification= bookService.getSpecForBook(bookId);
         return new ResponseEntity<>(specification, HttpStatus.OK);
     }
 
@@ -45,11 +46,7 @@ public class BookController {
     }
 
 
-    @GetMapping
-    public ResponseEntity<List<Book>> getAllBooks() {
-        List<Book> books = (List<Book>) bookService.getAllBooks();
-        return new ResponseEntity<>(books, HttpStatus.OK);
-    }
+
 
 
     @GetMapping("/filterByAuthor")
@@ -72,6 +69,66 @@ public class BookController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to add review: " + e.getMessage());
         }
     }
+
+/*
+    @GetMapping("/titlesAndAuthors")
+    public ResponseEntity<List<String>> getTitlesAuthors() {
+        List<String> titlesAuthors = bookService.titlesWithAuthors();
+        return new ResponseEntity<>(titlesAuthors, HttpStatus.OK);
+    }
+
+
+
+    @GetMapping("/titlesAndAuthors")
+    public String getTitlesAuthors(Model model) {
+
+        List<Book> allBooks = bookService.getAllBooks();
+
+        Collections.shuffle(allBooks);
+
+        List<Book> randomBooks = allBooks.subList(0, Math.min(20, allBooks.size()));
+
+        model.addAttribute("books", randomBooks);
+
+        return "index";
+    }
+
+
+
+    @GetMapping
+    public List<Book> getAllBooks() {
+        List<Book> allBooks = bookService.getAllBooks();
+
+        Collections.shuffle(allBooks);
+
+        List<Book> randomBooks = allBooks.subList(0, Math.min(20, allBooks.size()));
+        return randomBooks;
+    }
+
+ */
+
+    @GetMapping
+    public List<Map<String, String>> getAllBooks() {
+        List<Book> allBooks = bookService.getAllBooks();
+
+        Collections.shuffle(allBooks);
+
+        List<Book> randomBooks = allBooks.subList(0, Math.min(20, allBooks.size()));
+
+        List<Map<String, String>> booksData = new ArrayList<>();
+        for (Book book : randomBooks) {
+            Map<String, String> bookData = new HashMap<>();
+            bookData.put("title", book.getTitle());
+            bookData.put("authorName", book.getAuthor().getName());
+            booksData.add(bookData);
+        }
+
+        return booksData;
+    }
+
+
+
+
 
 
 

@@ -1,0 +1,76 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: tan;
+}
+
+.container1 {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 0px;
+    position: relative;
+}
+
+.container2 {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.container3 {
+    max-width: 100px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex; /* Use flexbox */
+    align-items: center; /* Center items vertically */
+}
+
+.container4 {
+    max-width: 300px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 0px;
+    position: relative;
+}
+
+
+.icon-container {
+    margin-right: 10px; /* Place button before text */
+}
+
+.additional-text {  /* Text after title */
+    font-size: 16px;
+    color: black;
+}
+
+.title {
+    font-family: Fantasy, sans-serif;
+    font-size: 60px;
+    color: black;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-left: 0;
+    display: inline-block;
+}
+
+.fa-book-open {
+    vertical-align: middle; /* Align button with text */
+}
+
+.button {
+    background-color: #C4A484;
+    color: black;
+    font-size: 25px;
+    padding: 12px 28px;
+    transition-duration: 0.4s;
+    border: none;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: #999; /* Change color on hover */
+    color: white; /* Change text color on hover */
+}

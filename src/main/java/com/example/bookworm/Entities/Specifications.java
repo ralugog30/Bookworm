@@ -3,8 +3,8 @@ package com.example.bookworm.Entities;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "specification")
-public class Specification{
+@Table(name = "specifications")
+public class Specifications{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,7 +16,7 @@ public class Specification{
     @Column(name = "year")
     private int year;
 
-    public Specification(Long id, String description, int year) {
+    public Specifications(Long id, String description, int year) {
         this.id = id;
         this.description = description;
         this.year = year;
@@ -31,7 +31,7 @@ public class Specification{
                 '}';
     }
 
-    public Specification() {
+    public Specifications() {
 
     }
 
