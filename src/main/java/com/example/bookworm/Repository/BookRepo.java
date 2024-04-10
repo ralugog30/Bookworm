@@ -3,11 +3,9 @@ package com.example.bookworm.Repository;
 import com.example.bookworm.Entities.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import java.util.stream.Collectors;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 
 public interface BookRepo extends JpaRepository<Book, Long> {
@@ -49,36 +47,35 @@ public interface BookRepo extends JpaRepository<Book, Long> {
 
     }
 
-
-
-
-
-
-
-/*
-    default List<Book> filterBooksByCategoryAndAuthor(List<String> selectedBooks) {
-        List<Book> selectedCategoryBooks = new ArrayList<>();
-        for (String title : selectedBooks) {
-            Book selectedBook = findByTitle(title);
-            String category = selectedBook.getCategory();
-            String author = selectedBook.getAuthor();
-
-            // Filter books by category and author
-            List<Book> books = bookRepo.findByCategoryAndAuthor(category, author);
-            selectedCategoryBooks.addAll(books);
-        }
-        return selectedCategoryBooks;
+    default List<Book> findBooksByIds(List<Long> bookIds) {
+        return findAllById(bookIds);
     }
 
-    default Book findByTitleAndAuthor(String titleAndAuthor){
-        List<Book> books = findAll();
-        String title = titleAndAuthor.strip();
-        for(Book b: books){
 
-        }
+
+    default List<Book> filterBooksByCategoryAndAuthor(List<Long> selectedBookIds) {
+        // Find all selected books by their IDs
+        List<Book> selectedBooks = findBooksByIds(selectedBookIds);
+
+        // Filter books based on category or author
+        List<Book> filteredBooks =findAll().stream()
+                .filter(book -> selectedBooks.stream()
+                        .anyMatch(selectedBook ->
+                                book.getCategory().equals(selectedBook.getCategory()) ||
+                                        book.getAuthor().equals(selectedBook.getAuthor())))
+                .collect(Collectors.toList());
+
+        return filteredBooks;
     }
 
- */
+
+
+
+
+
+
+
+
 
 
 

@@ -5,3 +5,13 @@ GET http://localhost:8080/api/book/644/author
 
 ###
 GET http://localhost:8080/api/book/titlesAndAuthors
+
+###
+GET http://localhost:8080/api/books/suggestions?id=123&name=masa
+
+###
+POST whatever.com
+
+{
+id
+}

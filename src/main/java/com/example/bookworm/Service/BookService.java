@@ -3,6 +3,7 @@ package com.example.bookworm.Service;
 import com.example.bookworm.Entities.*;
 import com.example.bookworm.Repository.BookRepo;
 import com.example.bookworm.Repository.ReviewRepo;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -100,6 +101,13 @@ public class BookService {
     public List<String> titlesWithAuthors(){
         return bookRepo.getTilesAuthors();
     }
+
+
+    public List<Book> filterBooksByCategoryAndAuthor(List<Long> selectedBooks){
+        return bookRepo.filterBooksByCategoryAndAuthor(selectedBooks);
+    }
+
+
 
 
 

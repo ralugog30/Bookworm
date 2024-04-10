@@ -2,15 +2,13 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: tan;
+    background-color: #98817b;
 }
 
 .container1 {
     max-width: 800px;
     margin: 0 auto;
     text-align: left;
-    padding: 0px;
-    position: relative;
 }
 
 .container2 {
@@ -25,25 +23,33 @@ body {
     max-width: 100px;
     margin: 0 auto;
     padding: 20px;
-    display: flex; /* Use flexbox */
-    align-items: center; /* Center items vertically */
+    display: flex;
+    align-items: center;
 }
 
-.container4 {
+.container4 { /* For the image */
+    font-style: oblique;
+    font-weight: 800;
     max-width: 300px;
-    margin: 0 auto;
+    margin: 0 auto; /*centrare */
     text-align: left;
-    padding: 0px;
-    position: relative;
+}
+.container5 {    /* the image */
+    background-image: url("books2.jpg");
+    padding: 20px;   /* the image */
 }
 
+.container6 {    /* Make text more visible */
+    opacity: 10.5;
+}
 
-.icon-container {
-    margin-right: 10px; /* Place button before text */
+.icon-container {   /* Place icon2 before text */
+    margin-right: 10px;
 }
 
 .additional-text {  /* Text after title */
-    font-size: 16px;
+    font-weight: 900;
+    font-size: 20px;
     color: black;
 }
 
@@ -56,11 +62,11 @@ body {
     display: inline-block;
 }
 
-.fa-book-open {
-    vertical-align: middle; /* Align button with text */
+.fa-book-open { /* Align icon1 with text */
+    vertical-align: middle;
 }
 
-.button {
+.button {   /* Search button */
     background-color: #C4A484;
     color: black;
     font-size: 25px;
@@ -71,6 +77,6 @@ body {
 }
 
 .button:hover {
-    background-color: #999; /* Change color on hover */
-    color: white; /* Change text color on hover */
+    background-color: #999;
+    color: white; /* text color on hover */
 }

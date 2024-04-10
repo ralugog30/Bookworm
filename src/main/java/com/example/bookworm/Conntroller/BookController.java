@@ -70,7 +70,7 @@ public class BookController {
         }
     }
 
-/*
+
     @GetMapping("/titlesAndAuthors")
     public ResponseEntity<List<String>> getTitlesAuthors() {
         List<String> titlesAuthors = bookService.titlesWithAuthors();
@@ -78,20 +78,6 @@ public class BookController {
     }
 
 
-
-    @GetMapping("/titlesAndAuthors")
-    public String getTitlesAuthors(Model model) {
-
-        List<Book> allBooks = bookService.getAllBooks();
-
-        Collections.shuffle(allBooks);
-
-        List<Book> randomBooks = allBooks.subList(0, Math.min(20, allBooks.size()));
-
-        model.addAttribute("books", randomBooks);
-
-        return "index";
-    }
 
 
 
@@ -105,7 +91,7 @@ public class BookController {
         return randomBooks;
     }
 
- */
+ /*
 
     @GetMapping
     public List<Map<String, String>> getAllBooks() {
@@ -125,6 +111,27 @@ public class BookController {
 
         return booksData;
     }
+
+ */
+
+
+
+
+    ////da eu primesc lista de int sau long?????????????????????????????????
+    @GetMapping("/suggestions")
+    public List<Book> getFilteredSuggestions(@RequestParam List<Long> selectedBooks) {
+        return bookService.filterBooksByCategoryAndAuthor(selectedBooks);
+    }
+
+
+    @GetMapping("/submit-books")
+    public List<Book> submitSelectedBooks(@RequestBody List<Long> selectedBooks) {
+     return bookService.filterBooksByCategoryAndAuthor(selectedBooks);
+    }
+
+
+
+
 
 
 

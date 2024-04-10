@@ -3,31 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Display</title>
+    <title>Bookworm</title>
     <script src="https://kit.fontawesome.com/5bd6eaf51d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css"> <!-- Link to an external CSS file -->
 </head>
 <body>
-<div class="container1">      <!--Title and motto-->
-    <i class="fa-solid fa-book-open fa-beat fa-2xl" style="color: #0c0d0d;"></i>
-    <h1 class="font-effect-neon title">Bookworm</h1>
-</div>
-
-<div class="container4">
-    <p style="font-size: 20px; margin-top: 15px; color: black;">Find your favorite books. Keep your passion alive.</p>
-</div>
-<div class="container2">
-    <div class="icon-container">
-        <i class="fa-solid fa-angles-down fa-2xs" style="color: #5b2c01;"></i>
+<div class="container5"> <!--image -->
+    <div class="container1">      <!--Title and motto-->
+        <div class="container6">
+            <i class="fa-solid fa-book-open fa-beat fa-2xl" style="color: #0c0d0d;"></i>
+            <h1 class="font-effect-neon title">Bookworm</h1>
+        </div>
+        <div class="container4">
+            <p style="font-size: 20px; margin-top: 15px; color: black;">Find your favorite books. Keep your passion alive.</p>
+        </div>
     </div>
-    <p class="additional-text">Select your most enjoyed books from the list:</p>
+    <div class="container2">    <!--Text-->
+        <div class="icon-container">
+            <br><br><br><br><br>
+            <i class="fa-solid fa-angles-down fa-2xs" style="color: #5b2c01;"></i>
+        </div>
+        <p class="additional-text"><br><br><br>Select top books you enjoyed reading them:</p>
+    </div>
 </div>
 <hr width="100%" size="2">
 <div id="books-container"></div>
 <div class="container3">     <!--Search button-->
-    <button class="button" onclick="alert('hei')">Search</button>
+    <button class="button" onclick="handleButtonClick()">Submit</button>
     <i class="fa-solid fa-magnifying-glass fa-bounce fa-2xl" style="color: #121212;"></i>
 </div>
 <script src="script.js"></script>
+<div class="container2">
+    <p style="font-size: 20px; margin-top: 30px; color: black;">*You didn't find books? Just refresh the page!</p>
+</div>
 </body>
-</html>
+</html>>
